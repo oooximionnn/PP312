@@ -1,8 +1,5 @@
 package com.antonechmaev.springboot.pp311.pp311.service;
 
-
-
-
 import com.antonechmaev.springboot.pp311.pp311.entity.User;
 
 import java.util.List;

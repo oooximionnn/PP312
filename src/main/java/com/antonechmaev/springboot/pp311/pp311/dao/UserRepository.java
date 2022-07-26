@@ -15,5 +15,4 @@ public interface UserRepository extends JpaRepository<User, Integer> {
     // их очень МНОГОО
     // вот, например, готовый метод - найти по имени
     //public List<User> findAllByName(String name);
-
 }
