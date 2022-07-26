@@ -3,6 +3,7 @@ package com.antonechmaev.springboot.pp311.pp311.controller;
 
 import com.antonechmaev.springboot.pp311.pp311.entity.User;
 import com.antonechmaev.springboot.pp311.pp311.service.UserService;
+import com.antonechmaev.springboot.pp311.pp311.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,19 +12,21 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
+@RequestMapping("/admin")
 public class MyController {
-    private final UserService userService;
+    private final UserServiceImpl userService;
     @Autowired
-    public MyController(UserService userService) {
+    public MyController(UserServiceImpl userService) {
         this.userService = userService;
     }
 
-    @RequestMapping("/users")
+    @GetMapping("/users")
     public String findAll(Model model) {
         List<User> users = userService.findAll();
         model.addAttribute("users", users);
         return "user-list";
     }
+
     @GetMapping("/user-create")
     public String createUserForm(User user){
         return "user-create";
@@ -34,17 +37,20 @@ public class MyController {
         userService.saveUser(user);
         return "redirect:/users";
     }
+
     @GetMapping("user-delete/{id}")
     public String deleteUser(@PathVariable("id") int id) {
         userService.deleteById(id);
         return "redirect:/users";
     }
+
     @GetMapping("user-update/{id}")
     public String updateUserForm(@PathVariable("id") int id, Model model) {
         User user = userService.findById(id);
         model.addAttribute("user", user);
         return "/user-update";
     }
+
     @PostMapping("/user-update")
     public String updateUser(User user) {
         userService.saveUser(user);

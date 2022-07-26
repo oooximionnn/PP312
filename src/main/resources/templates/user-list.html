@@ -16,6 +16,8 @@
                 <th>Surname</th>
                 <th>Department</th>
                 <th>Salary</th>
+                <th>Password</th>
+                <th>Role</th>
             </tr>
             </thead>
             <tbody>
@@ -24,6 +26,8 @@
                 <td th:text="${user.surname}"></td>
                 <td th:text="${user.department}"></td>
                 <td th:text="${user.salary}"></td>
+                <td th:text="${user.password}"></td>
+                <td th:text="${user.getRoles()}"></td>
                 <td><a th:href="@{user-update/{id}(id=${user.id})}">Edit</a></td>
                 <td><a th:href="@{user-delete/{id}(id=${user.id})}">Delete</a></td>
             </tr>
@@ -31,6 +35,8 @@
         </table>
     </div>
     <p><a href="/user-create">Create user</a></p>
+    <br>
+    <a href="/logout">Logout</a>
 </div>
 </body>
 </html>
