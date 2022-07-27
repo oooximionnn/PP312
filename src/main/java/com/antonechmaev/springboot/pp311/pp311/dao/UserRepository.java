@@ -4,6 +4,7 @@ package com.antonechmaev.springboot.pp311.pp311.dao;
 import com.antonechmaev.springboot.pp311.pp311.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
@@ -11,6 +12,7 @@ import java.util.List;
 // теперь используя JpaRepository<User, Integer> -
 // нам не нужно прописывать методы - уже есть готовые
 // 1 дженерик параметр прописываем энтити класс, вторым параметром primary key
+@Repository
 public interface UserRepository extends JpaRepository<User, Integer> {
     @Query("SELECT u FROM User u JOIN FETCH u.roles WHERE u.name = ?1")
     User findByUsername(String username);

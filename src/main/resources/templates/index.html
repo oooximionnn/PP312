@@ -1,11 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<html>
 <head>
   <title>Spring Security Example</title>
 </head>
 <body>
-<h1>Welcome to Index PAGE!</h1>
-
-
+<h1>Welcome!</h1>
+<form method="POST" action="com/antonechmaev/springboot/pp311/pp311/configs/WebSecurityConfig.java">
+  <input type="text" id="name" placeholder="Login">
+  <input type="password" id="password" placeholder="Password">
+  <button type="submit" id="btn">Send</button>
+</form>
 </body>
 </html>
